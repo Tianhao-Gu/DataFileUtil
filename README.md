@@ -47,10 +47,8 @@ dfu = DataFileUtil(self.callback_url)
 Download a file from shock:
 ```python
 params = {'shock_id': handle['id'],
-                  'unpack': 'uncompress',
-                  'file_path': os.path.join(self.scratch, handle['id'])
-                  }
-        # download
+          'unpack': 'uncompress',
+          'file_path': os.path.join(self.scratch, handle['id'])}
 dfu = DataFileUtil(self.callback_url)
 ret = dfu.shock_to_file(params)
 ```
@@ -58,13 +56,12 @@ ret = dfu.shock_to_file(params)
 Download files from external URL:
 ```python
 fwdpath = dfu.download_web_file(
-                        {'file_url': fwd,
-                        'download_type': download_type}).get(
-                                        'copy_file_path')
+            {'file_url': fwd,
+             'download_type': download_type}).get('copy_file_path')
+
 revpath = dfu.download_web_file(
             {'file_url': rev,
-            'download_type': download_type}).get(
-                            'copy_file_path') if rev else None
+             'download_type': download_type}).get('copy_file_path') if rev else None
 ```
 
 
